@@ -1,18 +1,20 @@
 # react-static
 
-## Usage
+## Installation
 
 ```
-npm i -D static-react
+npm install
 ```
 
-Static-react include babel presets and React – there is no need to install them separately with npm 3+.
+Static-react include babel presets and React
 
 ## Run
 
 ```
 npm start
 ```
+
+open browser to http://localhost:3333
 ---
 
 ISC License
