@@ -14,7 +14,10 @@ Static-react include babel presets and React
 npm start
 ```
 
-open browser to http://localhost:3333
+open browser to
+```
+http://localhost:3333
+```
 ---
 
 ISC License
