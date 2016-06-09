@@ -26,5 +26,8 @@
     "react-dom": "^15.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "strip-loader": "^0.1.2"
   }
 }
