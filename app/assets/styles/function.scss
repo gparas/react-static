@@ -1,0 +1,10 @@
+// Dynamically change text color based on a background color
+// --------------------------------------------------
+
+@function text-contrast($color) {
+  @if (lightness($color) > 50) {
+    @return #888; // Lighter backgorund, return dark color
+  } @else {
+    @return #ffffff; // Darker background, return light color
+  }
+}

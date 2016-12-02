@@ -1,0 +1,45 @@
+$widths: (
+  third: (33.3333%),
+  half: (50%),
+  quarter: (25%)
+);
+
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($grid-gutter-width/2);
+  margin-right: -($grid-gutter-width/2);
+}
+
+.grid-item{
+  display: block;
+  flex: 1;
+  padding-left: ($grid-gutter-width/2);
+  padding-right: ($grid-gutter-width/2);
+  
+  @each $width, $properties in $widths{
+    &.is-one-#{$width}{
+      width: 100%;
+      flex: none;
+
+      @media screen and (min-width: 768px){
+        width: nth($properties, 1);
+      }
+    }
+  }
+}
+
+
+// Vertical Space
+// --------------------------------------------------
+
+.grid-block{
+  margin-top: 0;
+  @media (min-width: 768px){
+    margin-top: 40px;
+  }
+}
+
+.grid-block-item{
+  padding-top: 30px;
+}

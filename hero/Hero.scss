@@ -1,0 +1,29 @@
+$hero-bgc: #222;
+$hero-nav-color: text-contrast($hero-bgc);
+
+.hero{
+  width: 100%;
+  background-color: $hero-bgc;
+  color: text-contrast($hero-bgc);
+  background: 50% 50% no-repeat;
+  background-size: cover;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// Hero body
+// --------------------------------------------------
+
+.hero-body{
+  position: relative;
+  text-align: center;
+}
+
+.hero-foot{
+  position: relative;
+  padding-top: $space-m;
+  padding-bottom: $space-m;
+}

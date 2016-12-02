@@ -1,0 +1,42 @@
+//== Colors
+//
+$primary:         #ff8800;
+$success:         #6dc77a;
+$info:            #38acd2;
+$warning:         #f2a057;
+$danger:          #e24548;
+
+//== Contextual backgrounds
+//
+$bg-dark:         #222;
+
+//== Space
+//
+$space-default:         16px;
+$space-xs:              4px;
+$space-s:               8px;
+$space-m:               $space-default;
+$space-l:               32px;
+$space-xl:              64px;
+
+//== Scaffolding
+//
+$body-bg:               #fff;
+$text-color:            #888;
+
+$link-color:            $primary;
+$link-hover-color:      darken($link-color, 15%);
+
+//== Typography
+//
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          16px;
+$line-height-base:        1.5;
+
+$line-height-computed:    floor(($font-size-base * $line-height-base));
+
+//== Grid
+//
+$grid-gutter-width:         $space-default;
