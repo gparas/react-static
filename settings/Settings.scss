@@ -1,0 +1,30 @@
+.settings{
+  position: relative;
+  .settings-trigger{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(3,8,15,.9);
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    animation-fill-mode: both;
+    animation-duration: .15s;
+    transition: opacity .15s ease-in,transform .15s ease-in,color .1s linear;
+  }
+  &:hover{
+    .settings-trigger{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

@@ -15,12 +15,16 @@ class FeatureItem extends React.Component {
   }
   render(){
     return (
-      <div className="grid-item grid-block-item is-one-third">
+      <div 
+        className="grid-item grid-block-item" 
+      >
         <ContentEditable
           html={this.state.html}
           disabled={false}      
           onChange={this.handleChange}
         />
+        <a href="#" onClick={this.props.handleRmove}>delete</a>
+        <a href="#" onClick={this.props.handleAdd}>add</a>
       </div>
     );
   }
@@ -28,7 +32,9 @@ class FeatureItem extends React.Component {
 
 FeatureItem.propTypes = {
   title: React.PropTypes.string,
-  text: React.PropTypes.string
+  text: React.PropTypes.string,
+  handleRmove: React.PropTypes.func,
+  handleAdd: React.PropTypes.func
 };
 
 export default FeatureItem

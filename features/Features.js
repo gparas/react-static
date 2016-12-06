@@ -1,75 +1,65 @@
 import React from 'react';
-import { TwitterPicker } from 'react-color';
+import fontColorContrast from 'font-color-contrast';
 import FeatureItem from './FeatureItem';
+import Settings from '../settings/Settings';
+import Title from '../title/Title';
+import _ from 'lodash';
 import '../scss/Grid.scss';
+import '../scss/Icons.scss';
 
 class Features extends React.Component {
   constructor() {
     super();
     this.state = {
-      displayColorPicker: false,
-      background: '#fff',
-      data: {
-        features: [
-          {title: 'Fast and easy-to-use', text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'},
-          {title: 'Safe and secure', text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'},
-          {title: 'Your travel best companion', text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'}
-        ]
-      }
+      data: [
+        {id: 1, title: 'Fast and easy-to-use', text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'},
+        {id: 2, title: 'Safe and secure', text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'},
+        {id: 3, title: 'Your travel best companion', text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'}
+      ]
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.addFeature = this.addFeature.bind(this);
   }
-  handleClick(){
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
-  };
-
-  handleClose(){
-    this.setState({ displayColorPicker: false })
-  };
-  handleChange(color){
-    this.setState({ background: color.hex });
-  };
+  addFeature() {
+    const id = this.state.data.length + 1;
+    const updatedData = _.clone(this.state.data);
+    updatedData.push({
+      id: id,
+      title: 'My feature title',
+      text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.'
+    });
+    this.setState({data: updatedData});
+  }
+  deleteFeature(item) {
+    const newState = this.state.data;
+    if (newState.indexOf(item) > -1) {
+      newState.splice(newState.indexOf(item), 1);
+      this.setState({data: newState});
+    }
+  }
   render(){
-    const bgColor = {
-      background: `${this.state.background}`
-    }
-    const popover = {
-      position: 'absolute',
-      zIndex: '2',
-      top: '85px',
-      right: '21px'
-    }
-    const cover = {
-      position: 'fixed',
-      top: '0px',
-      right: '0px',
-      bottom: '0px',
-      left: '0px',
-    }
+    const featureList = this.state.data.map((item) => 
+      <FeatureItem
+        key={item.id}
+        title={item.title}
+        text={item.text}
+        handleRmove={this.deleteFeature.bind(this, item)}
+        handleAdd={this.addFeature}
+      />
+    )
     return (
-      <div className="relative">
-        <section className="features v-space text-center" style={bgColor} onClick={ this.handleClose }>
+      <Settings>
+        <section id="features" className="v-space text-center">
           <div className="container">
-            <h2 className="primary-title">Why choose tripsta</h2>
-            <p>Proin iaculis erat nec sapien vehicula scelerisque - Nullam a orci et elit gravida faucibus.</p>
+            <Title
+              title="Why choose tripsta"
+              text="Proin iaculis erat nec sapien vehicula scelerisque - Nullam a orci et elit gravida faucibus."
+            />
             <div className="grid grid-block">
-              {this.state.data.features.map((feature,i) => 
-                <FeatureItem 
-                  key={i}
-                  title={feature.title}
-                  text={feature.text}
-                />
-              )}
+              {featureList}
             </div>
           </div>
         </section>
-        <div className="settings" onClick={ this.handleClick }>settings</div>
-        { this.state.displayColorPicker ? <div style={ popover }>
-          <TwitterPicker triangle="top-right" onChange={ this.handleChange }/>
-        </div> : null }
-      </div>
+      </Settings>
     );
   }
 }

@@ -32,7 +32,11 @@ module.exports = {
       { test: /\.jpg/, loader: "url-loader?limit=10000&mimetype=image/jpg" },
       { test: /\.gif/, loader: "url-loader?limit=10000&mimetype=image/gif" },
       { test: /\.png/, loader: "url-loader?limit=10000&mimetype=image/png" },
-      { test: /\.svg/, loader: "url-loader?limit=10000&mimetype=image/svg" }
+      { test: /\.svg/, loader: "url-loader?limit=10000&mimetype=image/svg" },
+
+      // Load fonts
+      { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
     ]
   },
   postcss: [autoprefixer({ browserslist: ['last 2 versions, > 10%'] }) ],
