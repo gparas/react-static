@@ -56,3 +56,39 @@
     color: text-contrast($bg-dark);
   }
 }
+
+.relative{
+  position: relative;
+  .settings{
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+    background: rgba(3,8,15,.9);
+    font-size: 20px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    animation-fill-mode: both;
+    animation-duration: .15s;
+    transition: opacity .15s ease-in,transform .15s ease-in,color .1s linear;
+  }
+  &:hover{
+    .settings{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+section{
+  position:relative;
+
+
+}

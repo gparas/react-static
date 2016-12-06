@@ -1,4 +1,5 @@
 import React from 'react';
+import ContentEditable from 'react-contenteditable';
 import Nav from '../navigation/Nav';
 import css from './Hero.scss';
 
@@ -7,15 +8,16 @@ class Hero extends React.Component {
     super();
     this.state = {
       fullscreen: false,
-      title: 'Find your best way to anywhere'
+      html: '<h1 class="primary-title">Find your best way to anywhere</h1><p className="secondary-title">Compare and book Flights, Trains, Buses and Transfers</p>'
     };
+    this.handleChange = this.handleChange.bind(this);
   }
-  update(e){
-    this.setState({title: e.target.value})
+  handleChange(e){
+    this.setState({html: e.target.value});
   }
   render(){
     const heroBgImage = {
-      'background-image': 'url(https://source.unsplash.com/category/nature)',
+      'backgroundImage': 'url(https://source.unsplash.com/category/nature)',
       'height': `${this.state.fullscreen ? window.innerHeight : '' }`
     };
     return (
@@ -30,8 +32,11 @@ class Hero extends React.Component {
         </div>
         <div className="hero-body v-space">
           <div className="container">
-            <h1 className="primary-title" onInput={this.update.bind(this)}>{this.state.title}</h1>
-            <p className="secondary-title">Compare and book Flights, Trains, Buses and Transfers</p>
+              <ContentEditable
+                html={this.state.html}
+                disabled={false}      
+                onChange={this.handleChange}
+              />
           </div>
         </div>
         <div className="hero-foot">

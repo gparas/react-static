@@ -422,3 +422,10 @@ td,
 th {
   padding: 0;
 }
+
+
+// Plain-Text ContentEditable div for React.js
+
+div[contenteditable] {
+  -webkit-user-modify: read-write-plaintext-only;
+}
