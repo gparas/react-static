@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
+import Icons from '../icons/Icons';
 import '../scss/Grid.scss';
 
 class FeatureItem extends React.Component {
@@ -18,6 +19,9 @@ class FeatureItem extends React.Component {
       <div 
         className="grid-item grid-block-item" 
       >
+        <div className="feature-icon">
+          <Icons />
+        </div>
         <ContentEditable
           html={this.state.html}
           disabled={false}      

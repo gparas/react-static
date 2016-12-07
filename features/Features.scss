@@ -1,0 +1,20 @@
+#features{
+  .grid-item{
+    @media screen and (max-width: 767px){
+        width: 100%;
+        flex: none;
+      }
+  }
+
+  .feature-icon{
+    margin-bottom: $space-default * 2;
+
+    [class*=icon-]{
+      color: $success;
+      cursor: pointer;
+      width: 56px;
+      height: 56px;
+      font-size: 56px;
+    }
+  }
+}

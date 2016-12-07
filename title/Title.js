@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
+import css from './Title.scss';
 
 class Title extends React.Component {
   constructor(props) {

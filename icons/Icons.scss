@@ -1,0 +1,22 @@
+.icon-list{
+  display: flex;
+  flex-wrap: wrap;
+
+  .icon-list-item{
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    font-size: 24px;
+    border-radius: 4px;
+    transition: all .1s ease-out;
+
+    &:hover{
+      background-color: #85d8f2;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

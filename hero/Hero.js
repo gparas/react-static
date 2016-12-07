@@ -2,6 +2,7 @@ import React from 'react';
 import Title from '../title/Title';
 import Nav from '../navigation/Nav';
 import css from './Hero.scss';
+import '../scss/Grid.scss';
 
 class Hero extends React.Component {
   constructor() {
@@ -35,7 +36,20 @@ class Hero extends React.Component {
         </div>
         <div className="hero-foot">
           <div className="container">
-            <Nav />
+            <div className="grid">
+              <div className="grid-item text-center">
+                <img src="../app/assets/images/award.png" />
+              </div>
+              <div className="grid-item text-center">
+                <img src="../app/assets/images/award-2.png" />
+              </div>
+              <div className="grid-item text-center">
+                <img src="../app/assets/images/award-3.png" />
+              </div>
+              <div className="grid-item text-center">
+                <img src="../app/assets/images/award-4.png" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -7,7 +7,7 @@ class Nav extends React.Component {
       <nav className="navbar">
         <div className="navbar-left">
           <a href="#" className="navbar-brand">
-            tripsta
+            <img src="../app/assets/images/logo_white.png" />
           </a>
         </div>
         <div className="navbar-right">
