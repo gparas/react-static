@@ -21,6 +21,7 @@ class Icons extends React.Component {
     const icon = item.target.className
     this.setState({selectedItem: icon});
     this.setState({ modalIsOpen: false });
+    this.setState({ searchString: '' });
   }
   handleChange(e){
     this.setState({ searchString:e.target.value });
@@ -46,12 +47,11 @@ class Icons extends React.Component {
         width                 : '576px',
         padding               : '0px',
         border                : 'none',
-        top                   : '50%',
+        top                   : '10%',
         left                  : '50%',
         right                 : 'auto',
         bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+        marginLeft            : '-288px'
       }
     };
     return (

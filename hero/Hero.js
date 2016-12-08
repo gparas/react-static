@@ -1,4 +1,5 @@
 import React from 'react';
+import Unsplash from 'unsplash-js';
 import Title from '../title/Title';
 import Nav from '../navigation/Nav';
 import css from './Hero.scss';
@@ -8,12 +9,17 @@ class Hero extends React.Component {
   constructor() {
     super();
     this.state = {
-      fullscreen: false
+      fullscreen: true
     };
   }
   render(){
+    const unsplash = new Unsplash({
+      applicationId: "4d66188560a3f9577f17edc2a8f720008149508df462c6528b3e6506694f8194",
+      secret: "c40bfe342322aae748399333036ba4da6ec8b20099b4150d666784dec5a5bfdb",
+      callbackUrl: "urn:ietf:wg:oauth:2.0:oob"
+    });
     const heroBgImage = {
-      'backgroundImage': 'url(https://source.unsplash.com/category/nature)',
+      'backgroundImage': 'url(https://source.unsplash.com/1600x900/?city,paris)',
       'height': `${this.state.fullscreen ? window.innerHeight : '' }`
     };
     return (
