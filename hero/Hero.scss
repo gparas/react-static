@@ -3,15 +3,30 @@ $hero-nav-color: text-contrast($hero-bgc);
 
 .hero{
   width: 100%;
+  min-height: 680px;
   background-color: $hero-bgc;
   color: text-contrast($hero-bgc);
-  background: 50% 50% no-repeat;
-  background-size: cover;
   position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+// Hero image
+// --------------------------------------------------
+
+.hero-image{
+  flex: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: 50% 50% no-repeat;
+  background-size: cover;
 }
 
 // Hero body
@@ -27,3 +42,6 @@ $hero-nav-color: text-contrast($hero-bgc);
   padding-top: $space-m;
   padding-bottom: $space-m;
 }
+
+// Settings
+// --------------------------------------------------

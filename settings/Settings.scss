@@ -1,5 +1,6 @@
 .settings{
   position: relative;
+  
   .settings-trigger{
     display: flex;
     align-items: center;
@@ -25,6 +26,102 @@
     .settings-trigger{
       opacity: 1;
       visibility: visible;
+    }
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+
+    input {display:none;}
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      border-radius: 14px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #373d47;
+      transition: .2s;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background-color: white;
+        transition: .2s;
+      }
+    }
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+  }
+
+  .option-container{
+    position: absolute;
+    top: 87px;
+    right: 21px;
+    width: 220px;
+    z-index: 9991;
+    background-color: rgba(3,8,15,.9);
+    border-radius: 7px;
+    opacity: 1;
+    visibility: visible;
+    text-align: left;
+
+    &:before{
+      content: '';
+      position: absolute;
+      top: -7px;
+      right: 18px;
+      width: 0;
+      height: 0;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      border-bottom: 7px solid rgba(3,8,15,.9);
+    }
+
+    .option-item{
+      font-size: 13px;
+      color: #75797c;
+      height: 53px;
+      padding-left: 19px;
+      padding-right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:not(:last-child){
+        border-bottom: 1px #3d4146 solid;
+      }
+
+      input{
+        background-color: #fff;
+        line-height: 40px;
+        padding: 10px 5px 10px 10px;
+        font-size: 14px;
+        color: #898c90;
+        border: none;
+        border-radius: 3px;
+        height: 28px;
+        width: 50px;
+        outline: 0;
+      }
     }
   }
 }

@@ -1,32 +1,47 @@
 import React from 'react';
-import Unsplash from 'unsplash-js';
+import OwlCarousel from 'react-owl-carousel';
+import Switch from 'react-toggle-switch'
 import Title from '../title/Title';
 import Nav from '../navigation/Nav';
 import css from './Hero.scss';
 import '../scss/Grid.scss';
+import '../settings/Settings.scss';
 
 class Hero extends React.Component {
   constructor() {
     super();
     this.state = {
-      fullscreen: true
+      fullscreen: false,
+      options: false,
+      opacity: 4
     };
+    this.handleCheck = this.handleCheck.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleCheck() {
+    this.setState({fullscreen: !this.state.fullscreen})
+  }
+  handleClick() {
+    this.setState({options: !this.state.options})
+  }
+  handleChange(e){
+    this.setState({opacity: e.target.value});
   }
   render(){
-    const unsplash = new Unsplash({
-      applicationId: "4d66188560a3f9577f17edc2a8f720008149508df462c6528b3e6506694f8194",
-      secret: "c40bfe342322aae748399333036ba4da6ec8b20099b4150d666784dec5a5bfdb",
-      callbackUrl: "urn:ietf:wg:oauth:2.0:oob"
-    });
-    const heroBgImage = {
+    const heroHeight = {
+      'height': `${this.state.fullscreen ? window.innerHeight + 'px' : '' }`
+    };
+    const bgImage = {
       'backgroundImage': 'url(https://source.unsplash.com/1600x900/?city,paris)',
-      'height': `${this.state.fullscreen ? window.innerHeight : '' }`
+      'opacity': `.${this.state.opacity}`
     };
     return (
       <section 
-        className={`hero has-overlay is-dark`} 
-        style={heroBgImage}
+        className="hero is-dark settings"
+        style={heroHeight}
       >
+        <div className="hero-image" style={bgImage}></div>
         <div className="hero-head">
           <div className="container">
             <Nav />
@@ -42,22 +57,34 @@ class Hero extends React.Component {
         </div>
         <div className="hero-foot">
           <div className="container">
-            <div className="grid">
-              <div className="grid-item text-center">
-                <img src="../app/assets/images/award.png" />
-              </div>
-              <div className="grid-item text-center">
-                <img src="../app/assets/images/award-2.png" />
-              </div>
-              <div className="grid-item text-center">
-                <img src="../app/assets/images/award-3.png" />
-              </div>
-              <div className="grid-item text-center">
-                <img src="../app/assets/images/award-4.png" />
-              </div>
-            </div>
+            <OwlCarousel slideSpeed={300} pagination  itemsCustom={[[0, 1],[768, 3], [992, 4]]} >
+              <div className="text-center"><img src="../app/assets/images/award.png" /></div>
+              <div className="text-center"><img src="../app/assets/images/award-2.png" /></div>
+              <div className="text-center"><img src="../app/assets/images/award-3.png" /></div>
+              <div className="text-center"><img src="../app/assets/images/award-4.png" /></div>
+            </OwlCarousel>
           </div>
         </div>
+
+        <div className="settings-trigger" onClick={ this.handleClick }>
+          <span className="icon-tools-2"></span>
+        </div>
+        {this.state.options ? 
+          <div className="option-container">
+            <div className="option-item">
+              <div>Full Screen</div>
+              <label className="switch">
+                <input type="checkbox" onClick={this.handleCheck}/>
+                <div className="slider"></div>
+              </label>
+            </div>
+            <div className="option-item">
+              <div>Full Screen</div>
+              <input type="number" min="1" max="5" value={this.state.opacity} onChange={this.handleChange}/>
+            </div>
+          </div>
+          : null
+        }
       </section>
     );
   }
