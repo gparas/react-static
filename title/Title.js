@@ -6,8 +6,7 @@ class Title extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      fullscreen: false,
-      html: `<h1 class="primary-title">${props.title}</h1><p className="secondary-title">${props.text}</p>`
+      html: `<h1 class="primary-title">${props.title}</h1><p class="secondary-title">${props.text}</p>`
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -16,7 +15,7 @@ class Title extends React.Component {
   }
   render(){
     return (
-      <header>
+      <header className="text-center">
         <ContentEditable
           html={this.state.html}
           disabled={false}

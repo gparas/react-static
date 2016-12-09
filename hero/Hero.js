@@ -12,6 +12,7 @@ class Hero extends React.Component {
     super();
     this.state = {
       fullscreen: false,
+      checked: false,
       options: false,
       opacity: 4
     };
@@ -21,6 +22,7 @@ class Hero extends React.Component {
   }
   handleCheck() {
     this.setState({fullscreen: !this.state.fullscreen})
+    this.setState({checked: !this.state.checked})
   }
   handleClick() {
     this.setState({options: !this.state.options})
@@ -35,6 +37,13 @@ class Hero extends React.Component {
     const bgImage = {
       'backgroundImage': 'url(https://source.unsplash.com/1600x900/?city,paris)',
       'opacity': `.${this.state.opacity}`
+    };
+    const cover = {
+      position: 'fixed',
+      top: '0px',
+      right: '0px',
+      bottom: '0px',
+      left: '0px',
     };
     return (
       <section 
@@ -57,7 +66,7 @@ class Hero extends React.Component {
         </div>
         <div className="hero-foot">
           <div className="container">
-            <OwlCarousel slideSpeed={300} pagination  itemsCustom={[[0, 1],[768, 3], [992, 4]]} >
+            <OwlCarousel slideSpeed={300} pagination={true}  itemsCustom={[[0, 1],[768, 3], [992, 4]]} >
               <div className="text-center"><img src="../app/assets/images/award.png" /></div>
               <div className="text-center"><img src="../app/assets/images/award-2.png" /></div>
               <div className="text-center"><img src="../app/assets/images/award-3.png" /></div>
@@ -70,11 +79,16 @@ class Hero extends React.Component {
           <span className="icon-tools-2"></span>
         </div>
         {this.state.options ? 
-          <div className="option-container">
+          <div className="option-popover">
+            <div style={ cover } onClick={ this.handleClick } />
             <div className="option-item">
               <div>Full Screen</div>
               <label className="switch">
-                <input type="checkbox" onClick={this.handleCheck}/>
+                <input 
+                  type="checkbox"
+                  checked={this.state.checked}
+                  onChange={this.handleCheck} 
+                />
                 <div className="slider"></div>
               </label>
             </div>

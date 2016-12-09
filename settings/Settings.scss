@@ -10,7 +10,7 @@
     right: 21px;
     visibility: hidden;
     opacity: 0;
-    z-index: 2;
+    z-index: 5;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -74,6 +74,14 @@
 
   .option-container{
     position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .option-popover{
+    position: absolute;
     top: 87px;
     right: 21px;
     width: 220px;
@@ -97,6 +105,7 @@
     }
 
     .option-item{
+      position: relative;
       font-size: 13px;
       color: #75797c;
       height: 53px;
@@ -122,6 +131,47 @@
         width: 50px;
         outline: 0;
       }
+    }
+  }
+}
+
+// Action edit delete
+
+.action-container{
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+
+  .grid-block-item:hover &{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  > a{
+    display: block;
+    font-size: 18px;
+    width: 40px;
+    height: 36px;
+    background-color: $info;
+    color: #fff;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+
+    &:hover,
+    &:focus{
+      background-color: darken($info, 5%);
+    }
+
+    &:first-child{
+      border-radius: 18px 0 0 18px;
+    }
+    &:last-child{
+      border-radius: 0 18px 18px 0;
+      border-left: 1px solid rgba(#fff, .3);
     }
   }
 }

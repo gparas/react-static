@@ -6,6 +6,21 @@
       }
   }
 
+  .grid-block-item{
+    position: relative;
+    div[contenteditable]{
+      outline: none;
+      cursor: text;
+    }
+    &:hover,
+    &:focus{
+      cursor: pointer;
+      outline-style: dashed;
+      outline-color: $edit-color;
+      outline-width: thin;
+    }
+  }
+
   .feature-icon{
     margin-bottom: $space-default * 2;
 

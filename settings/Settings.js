@@ -47,6 +47,7 @@ class Settings extends React.Component {
         {this.props.children}
         <div className="settings-trigger" onClick={ this.handleClick }><span className="icon-tools-2"></span></div>
         { this.state.displayColorPicker ? <div style={ popover }>
+          <div style={ cover } onClick={ this.handleClose } />
           <TwitterPicker triangle="top-right" onChange={ this.handleChange }/>
         </div> : null }
       </div>

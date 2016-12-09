@@ -27,8 +27,10 @@ class FeatureItem extends React.Component {
           disabled={false}      
           onChange={this.handleChange}
         />
-        <a href="#" onClick={this.props.handleRmove}>delete</a>
-        <a href="#" onClick={this.props.handleAdd}>add</a>
+        <div className="action-container">
+          <a href="#" onClick={this.props.handleAdd}><span className="icon-content_copy"></span></a>
+          <a href="#" onClick={this.props.handleRmove}><span className="icon-delete"></span></a>
+        </div>
       </div>
     );
   }

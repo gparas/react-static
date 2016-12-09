@@ -1,0 +1,71 @@
+#destinations{
+  .grid-item{
+    padding-top: $space-m;
+  }
+  .top-destination-input{
+    margin-left: $space-s;
+    border-width: 0 0 1px;
+    border-style: dashed;
+    border-color: #ccc;
+    width: 50px;
+    color: $text-color;
+
+    &:focus{
+      outline: 0;
+    }
+
+    &::placeholder{
+      color: inherit;
+    }
+  }
+
+  figure{
+    position: relative;
+    background-color: #000;
+    margin: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    img{
+      opacity: .8;
+      transform: scale(1);
+      transition: all .3s ease-out;
+
+    }
+    &:hover img{
+      transform: scale(1.1);
+    }
+
+    a{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    figcaption{
+      padding: $space-l $space-m $space-m;
+      background: linear-gradient(transparent, rgba(#000, .9));
+      color: #fff;
+      text-transform: capitalize;
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.block{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
