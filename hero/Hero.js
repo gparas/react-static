@@ -1,6 +1,5 @@
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
-import Switch from 'react-toggle-switch'
 import Title from '../title/Title';
 import Nav from '../navigation/Nav';
 import css from './Hero.scss';

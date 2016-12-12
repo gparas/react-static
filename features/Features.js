@@ -48,7 +48,7 @@ class Features extends React.Component {
       />
     )
     return (
-      <Settings>
+      <Settings background="#222">
         <section id="features" className="v-space text-center">
           <div className="container">
             <Title

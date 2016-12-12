@@ -6,6 +6,7 @@ import './scss/Utilities.scss';
 import Hero from './hero/Hero';
 import Features from './features/Features';
 import Destinations from './destinations/Destinations';
+import Testimonial from './testimonial/Testimonial';
 import Icons from './icons/Icons';
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
         <Hero />
         <Features />
         <Destinations />
+        <Testimonial />
       </div>
     )
   }

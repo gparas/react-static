@@ -1,0 +1,23 @@
+#testimonial{
+  text-align: center;
+  
+  .testimonial-image{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 40px auto 20px;
+  }
+
+  h2{
+    max-width: 800px;
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  p{
+    text-transform: capitalize;
+  }
+}

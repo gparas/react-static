@@ -5,11 +5,11 @@ import css from './Settings.scss';
 import '../scss/Icons.scss';
 
 class Settings extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       displayColorPicker: false,
-      background: '#222'
+      background: props.background
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);

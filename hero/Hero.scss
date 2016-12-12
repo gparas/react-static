@@ -47,7 +47,7 @@ $hero-nav-color: text-contrast($hero-bgc);
 // --------------------------------------------------
 
 .owl-theme .owl-controls{
-  margin-top: 8px;
+  margin-top: $space-m;
   text-align: center;
 }
 // Styling Pagination
@@ -57,9 +57,9 @@ $hero-nav-color: text-contrast($hero-bgc);
 }
 .owl-theme .owl-controls .owl-page span{
   display: block;
-  width: 8px;
-  height: 8px;
-  margin: 5px;
+  width: 10px;
+  height: 10px;
+  margin: $space-xs;
   opacity: 0.5;
   border-radius: 20px;
   background: #a3a2a0;

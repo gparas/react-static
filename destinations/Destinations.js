@@ -11,15 +11,15 @@ class Destinations extends React.Component {
     this.state = {
       searchString: '100',
       data: [
-        {city: 'paris', price: 120},
-        {city: 'london', price: 230},
-        {city: 'amsterdam', price: 310},
-        {city: 'berlin', price: 310},
-        {city: 'madrid', price: 310},
-        {city: 'rome', price: 310},
-        {city: 'lisbon', price: 310},
-        {city: 'prague', price: 310},
-        {city: 'milan', price: 310},
+        {country: 'France',city: 'paris', price: 120, days: 8},
+        {country: 'United Kingdom',city: 'london', price: 230, days: 13},
+        {country: 'Netherlands',city: 'amsterdam', price: 310, days: 10},
+        {country: 'Germany',city: 'berlin', price: 310, days: 9},
+        {country: 'Spain',city: 'madrid', price: 310, days: 4},
+        {country: 'Italy',city: 'rome', price: 310, days: 12},
+        {country: 'Portugal',city: 'lisbon', price: 310, days: 10},
+        {country: 'Czech Republic',city: 'prague', price: 310, days: 6},
+        {country: 'Italy',city: 'milan', price: 310, days: 4},
       ]
     };
     this.handleChange = this.handleChange.bind(this);
@@ -57,7 +57,9 @@ class Destinations extends React.Component {
             <DestinationItem
               key={i}
               title={item.city}
+              country={item.country}
               price={item.price}
+              days={item.days}
             />
           )}
           </div>

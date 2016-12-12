@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'react-lazy-image';
 import '../scss/Grid.scss';
 
 class DestinationItem extends React.Component {
@@ -6,10 +7,16 @@ class DestinationItem extends React.Component {
     return (
       <div className="grid-item is-one-third" >
         <figure>
-          <img src={`https://source.unsplash.com/800x600/?${this.props.title}`} />
+          <Image source={`http://source.unsplash.com/800x600/?${this.props.title}`} />
           <figcaption>
-            <div>{this.props.title}</div>
-            <div>{this.props.price}€</div>
+            <div>
+              <span className="country">{this.props.country}</span>
+              <strong>{this.props.title}</strong>
+            </div>
+            <div className="text-right">
+              <span className="days">{this.props.days} days</span>
+              <strong>{this.props.price}€</strong>
+            </div>
           </figcaption>
           <a href="#"></a>
         </figure>
@@ -20,7 +27,9 @@ class DestinationItem extends React.Component {
 
 DestinationItem.propTypes = {
   title: React.PropTypes.string,
+  country: React.PropTypes.string,
   price: React.PropTypes.number,
+  days: React.PropTypes.number,
 };
 
 export default DestinationItem
