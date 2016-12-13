@@ -1,6 +1,7 @@
 import React from 'react';
 import fontColorContrast from 'font-color-contrast';
-import DestinationItem from './DestinationItem';
+import DestinationList from './DestinationList';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './Destinations.scss';
 import '../title/Title.scss';
 import '../scss/Grid.scss';
@@ -9,30 +10,42 @@ class Destinations extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchString: '100',
-      data: [
-        {country: 'France',city: 'paris', price: 120, days: 8},
-        {country: 'United Kingdom',city: 'london', price: 230, days: 13},
-        {country: 'Netherlands',city: 'amsterdam', price: 310, days: 10},
-        {country: 'Germany',city: 'berlin', price: 310, days: 9},
-        {country: 'Spain',city: 'madrid', price: 310, days: 4},
-        {country: 'Italy',city: 'rome', price: 310, days: 12},
-        {country: 'Portugal',city: 'lisbon', price: 310, days: 10},
-        {country: 'Czech Republic',city: 'prague', price: 310, days: 6},
-        {country: 'Italy',city: 'milan', price: 310, days: 4},
-      ]
+      searchString: '50',
+      destination: [],
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+  componentDidMount() {
+    this.DestinationList();
+  }
+  DestinationList() {
+    return $.getJSON('https://pixabay.com/api/?key=3996820-5e281734e93c2d6d757f757d0&id=1506918,1606929,1504668,1373450,1272588,933713,1328467,1824368,1345586')
+      .then((data) => {
+        this.setState({ destination: data.hits });
+      });
   }
   handleChange(e){
     this.setState({ searchString:e.target.value });
   };
   render(){
-    let filteredDestination = this.state.data.filter(
+    let filteredDestination = this.state.destination.filter(
       (item) => {
-        return item.price >= this.state.searchString;
+        return item.downloads >= this.state.searchString;
       }
     );
+    const item = filteredDestination.map((item, i) => 
+      <DestinationList
+        key={i} 
+        title={item.tags.split(',')}
+        image={item.webformatURL}
+        price={item.downloads}
+      />
+    );
+    const TransitionOptions = {
+      transitionName: "scale-fade",
+      transitionEnterTimeout: 500,
+      transitionLeaveTimeout: 500
+    };
     return (
       <section id="destinations" className="v-space">
         <div className="container">
@@ -45,24 +58,20 @@ class Destinations extends React.Component {
               <input 
                 className="top-destination-input"
                 type="number"
-                step='100'
+                step='50'
                 value={this.state.searchString} 
                 onChange={this.handleChange}
               />
               €
             </p>
           </header>
-          <div className="grid grid-block">
-          {filteredDestination.map((item, i) => 
-            <DestinationItem
-              key={i}
-              title={item.city}
-              country={item.country}
-              price={item.price}
-              days={item.days}
-            />
-          )}
-          </div>
+          <ReactCSSTransitionGroup 
+            component="div"
+            className="grid grid-block"
+            {...TransitionOptions} 
+          >
+            {item}
+          </ReactCSSTransitionGroup>
         </div>
       </section>
     );
