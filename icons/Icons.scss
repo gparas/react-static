@@ -3,19 +3,21 @@
   flex-wrap: wrap;
 
   .icon-list-item{
-    color: #222;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 68px;
     height: 68px;
     font-size: 24px;
+    border: 2px solid rgba(#fff,.15);
     border-radius: 4px;
+    margin: $space-xs;
     transition: all .1s ease-out;
 
     &:hover{
-      background-color: #85d8f2;
-      color: #fff;
+      background-color: #6c6b6e;
+      border-color: transparent;
       cursor: pointer;
     }
   }

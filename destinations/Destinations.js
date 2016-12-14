@@ -21,6 +21,10 @@ class Destinations extends React.Component {
   DestinationList() {
     return $.getJSON('https://pixabay.com/api/?key=3996820-5e281734e93c2d6d757f757d0&id=1506918,1606929,1504668,1373450,1272588,933713,1328467,1824368,1345586')
       .then((data) => {
+        data.hits.forEach((element) => {
+          element.price = Math.floor((Math.random() * 500) + 100);
+          element.days = Math.floor((Math.random() * 15) + 1);
+        });
         this.setState({ destination: data.hits });
       });
   }
@@ -38,7 +42,8 @@ class Destinations extends React.Component {
         key={i} 
         title={item.tags.split(',')}
         image={item.webformatURL}
-        price={item.downloads}
+        price={item.price}
+        days={item.days}
       />
     );
     const TransitionOptions = {

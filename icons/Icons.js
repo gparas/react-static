@@ -44,14 +44,15 @@ class Icons extends React.Component {
         backgroundColor: 'rgba(0, 0, 0, 0.5)'
       },
       content : {
-        width                 : '576px',
+        width                 : '608px',
         padding               : '0px',
         border                : 'none',
         top                   : '10%',
         left                  : '50%',
         right                 : 'auto',
         bottom                : 'auto',
-        marginLeft            : '-288px'
+        marginLeft            : '-288px',
+        background            : 'transparent'
       }
     };
     return (
@@ -63,10 +64,6 @@ class Icons extends React.Component {
           style={customStyles}
           contentLabel="Icons Modal"
         >
-          <div className="modal-header">
-            <h2 className="modal-title" ref="subtitle">Icons</h2>
-            <button className="close" onClick={this.closeModal}>&times;</button>
-          </div>
           <div className="modal-search">
             <input 
               type="text" 

@@ -8,8 +8,6 @@ class DestinationList extends React.Component {
     return <Preloader />
   }
   render(){
-    const days = Math.floor((Math.random() * 15) + 1);
-    const price = Math.floor((Math.random() * 500) + 100);
     return (
       <div className="grid-item is-one-third">
         <figure>
@@ -25,7 +23,7 @@ class DestinationList extends React.Component {
               <strong>{this.props.title[1]}</strong>
             </div>
             <div className="text-right">
-              <span className="days">{days} days</span>
+              <span className="days">{this.props.days} days</span>
               <strong>{this.props.price}€</strong>
             </div>
           </figcaption>
