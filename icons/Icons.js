@@ -19,12 +19,12 @@ class Icons extends React.Component {
   }
   handleClick(item){
     const icon = item.target.className
-    this.setState({selectedItem: icon});
+    this.setState({ selectedItem: icon });
     this.setState({ modalIsOpen: false });
     this.setState({ searchString: '' });
   }
   handleChange(e){
-    this.setState({ searchString:e.target.value });
+    this.setState({ searchString: e.target.value });
   };
   openModal() {
     this.setState({ modalIsOpen: true });

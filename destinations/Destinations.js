@@ -40,9 +40,7 @@ class Destinations extends React.Component {
     this.setState({ searchString:e.target.value });
   };
   render(){
-    var sortDestination = _.sortBy(this.state.destination, 'price', (n) => {
-      Math.sin(n);
-    });
+    var sortDestination = _.sortBy(this.state.destination, [function(n) { return n.price; }]);
     let filteredDestination = sortDestination.filter(
       (item) => {
         return item.price >= this.state.searchString;
