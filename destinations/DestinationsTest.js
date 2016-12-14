@@ -1,7 +1,8 @@
 import React from 'react';
 import fontColorContrast from 'font-color-contrast';
 import DestinationItem from './DestinationItem';
-import OwlCarousel from 'react-owl-carousel';
+import DestinationList from './DestinationList';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import _ from 'lodash';
 import './Destinations.scss';
 import '../title/Title.scss';
@@ -41,7 +42,7 @@ class DestinationsTest extends React.Component {
   render(){
     const sortDestination = _.sortBy(this.state.destination, [function(n) { return n.price; }]);
     const item = sortDestination.map((item, i) => 
-      <DestinationItem
+      <DestinationList
         key={i} 
         title={item.tags.split(',')}
         image={item.webformatURL}
@@ -49,6 +50,11 @@ class DestinationsTest extends React.Component {
         days={item.days}
       />
     );
+    const TransitionOptions = {
+      transitionName: "scale-fade",
+      transitionEnterTimeout: 500,
+      transitionLeaveTimeout: 500
+    };
     return (
       <section id="destinations" className="v-space">
         <div className="container">
@@ -68,9 +74,13 @@ class DestinationsTest extends React.Component {
               />
             </form>
           </header>
-          <OwlCarousel slideSpeed={300} pagination={true}  itemsCustom={[[0, 1],[768, 3]]} >
+          <ReactCSSTransitionGroup 
+            component="div"
+            className="grid grid-block"
+            {...TransitionOptions} 
+          >
             {item}
-          </OwlCarousel>
+          </ReactCSSTransitionGroup>
         </div>
       </section>
     );

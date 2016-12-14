@@ -19,9 +19,9 @@ class App extends React.Component {
         <Hero />
         <Features />
         <Destinations />
-        {/*<DestinationsTest />*/}
         <Deals />
         <Testimonial />
+        {/*<DestinationsTest />*/}
       </div>
     )
   }
