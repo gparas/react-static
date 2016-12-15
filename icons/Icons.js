@@ -1,7 +1,6 @@
 import React from 'react';
-import Modal from 'react-modal';
+import Modal from '../modal/Modal';
 import './Icons.scss';
-import '../scss/Modal.scss';
 
 class Icons extends React.Component {
   constructor() {
@@ -28,10 +27,12 @@ class Icons extends React.Component {
   };
   openModal() {
     this.setState({ modalIsOpen: true });
+    document.body.className = 'modal-open'
   }
 
   closeModal() {
     this.setState({ modalIsOpen: false });
+    document.body.className = '';
   }
   render(){
     let filteredIcons = this.state.data.filter(
@@ -39,30 +40,16 @@ class Icons extends React.Component {
         return icon.toLowerCase().indexOf(this.state.searchString.toLowerCase()) !== -1;
       }
     );
-    const customStyles = {
-      overlay: {
-        backgroundColor: 'rgba(0, 0, 0, 0.5)'
-      },
-      content : {
-        width                 : '608px',
-        padding               : '0px',
-        border                : 'none',
-        top                   : '10%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginLeft            : '-288px',
-        background            : 'transparent'
-      }
-    };
     return (
       <div>
-        <span className={this.state.selectedItem} onClick={this.openModal}></span>
+        <span 
+          className={this.state.selectedItem} 
+          onClick={this.openModal}
+        >
+        </span>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Icons Modal"
+          closeModal={this.closeModal}
         >
           <div className="modal-search">
             <input 
@@ -72,14 +59,12 @@ class Icons extends React.Component {
               placeholder="Search icon..."
             />
           </div>
-          <div className="modal-content">
-            <div className="icon-list">
-              {filteredIcons.map((item, i) =>
-                <div className="icon-list-item" key={i}> 
-                  <span title={item} className={item} onClick={ this.handleClick }></span>
-                </div>
-              )}
-            </div>
+          <div className="list-icon">
+            {filteredIcons.map((item, i) =>
+              <div className="list-icon-item" key={i}> 
+                <span title={item} className={item} onClick={ this.handleClick }></span>
+              </div>
+            )}
           </div>
         </Modal>
       </div>

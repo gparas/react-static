@@ -10,13 +10,13 @@ class Nav extends React.Component {
             <img src="../app/assets/images/logo_white.png" />
           </a>
         </div>
-        <div className="navbar-right">
-          <ul className="navbar-nav">
-            <li><a href="#">Flights</a></li>
-            <li><a href="#">Hotels</a></li>
-            <li><a href="#">Cars</a></li>
-          </ul>
-        </div>
+        {/*<div className="navbar-right">
+                  <ul className="navbar-nav">
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Cars</a></li>
+                  </ul>
+                </div>*/}
       </nav>
     );
   }

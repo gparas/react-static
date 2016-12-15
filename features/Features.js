@@ -1,12 +1,12 @@
 import React from 'react';
 import fontColorContrast from 'font-color-contrast';
-import FeatureItem from './FeatureItem';
 import Settings from '../settings/Settings';
 import Title from '../title/Title';
 import _ from 'lodash';
 import './Features.scss';
 import '../scss/Grid.scss';
 import '../scss/Icons.scss';
+import FeatureItem from './FeatureItem';
 
 class Features extends React.Component {
   constructor() {

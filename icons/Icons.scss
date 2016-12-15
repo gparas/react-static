@@ -1,19 +1,20 @@
-.icon-list{
+.list-icon{
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -$space-xs;
 
-  .icon-list-item{
-    color: #fff;
+  > .list-icon-item{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 68px;
-    height: 68px;
-    font-size: 24px;
     border: 2px solid rgba(#fff,.15);
     border-radius: 4px;
     margin: $space-xs;
     transition: all .1s ease-out;
+    color: #fff;
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
 
     &:hover{
       background-color: #6c6b6e;

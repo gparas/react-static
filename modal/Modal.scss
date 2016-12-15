@@ -1,0 +1,110 @@
+// Modal General style
+// --------------------------------------------------
+.modal{
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba(10, 10, 10, 0.86);
+
+  .modal-overlay {
+    perspective: 600;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .modal-content{
+    position: relative;
+    padding: $space-m 0;
+    margin: 0 $space-m;
+    width: 100%;
+
+    @media screen and (min-width: 768px){
+      margin: 0 auto;
+      width: 568px;
+    }
+  }
+
+  .modal-close {
+    display: inline-block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    width: 32px;
+    height: 32px;
+    padding: $space-xs;
+    font-size: 24px;
+    line-height: 1;
+    color: #fff;
+    user-select: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.modal-search{
+  margin-bottom: $space-m;
+
+  input{
+    background-color: transparent;
+    height: 56px;
+    line-height: 48px;
+    padding: $space-s 0;
+    font-size: 32px;
+    font-weight: 300;
+    color: #fff;
+    border: 1px solid rgba(#fff,.15);
+    border-width: 0 0 1px;
+    border-radius: 0;
+    width: 100%;
+    outline: 0;
+  }
+}
+
+// Modal transition
+// --------------------------------------------------
+.modal-enter {
+  opacity: 0;
+  
+  .modal-content{
+    transform: translate(0, -25%);
+  }
+  
+  &.modal-enter-active {
+    opacity: 1;
+    transition: opacity 150ms ease-out;
+
+    .modal-content{
+      transform: translate(0, 0);
+      transition: transform 300ms ease-out;
+    }
+  }
+}
+
+.modal-leave {
+  opacity: 1;
+
+  &.modal-leave-active {
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+  }
+}

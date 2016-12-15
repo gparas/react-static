@@ -1,9 +1,9 @@
 #features{
   .grid-item{
     @media screen and (max-width: 767px){
-        width: 100%;
-        flex: none;
-      }
+      width: 100%;
+      flex: none;
+    }
   }
 
   .grid-block-item{
@@ -23,13 +23,9 @@
 
   .feature-icon{
     margin-bottom: 24px;
-
-    [class*=icon-]{
-      color: $success;
-      cursor: pointer;
-      width: 56px;
-      height: 56px;
-      font-size: 56px;
-    }
+    color: $success;
+    cursor: pointer;
+    font-size: 56px;
+    line-height: 1;
   }
 }
