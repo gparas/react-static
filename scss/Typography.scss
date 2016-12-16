@@ -1,3 +1,27 @@
+@font-face {
+  font-family: 'effra';
+  src: url('../app/assets/fonts/Effra_W_Bd.eot');
+  src: url('../app/assets/fonts/Effra_W_Bd.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'effra';
+  src: url('../app/assets/fonts/Effra_W_Lt.eot');
+  src: url('../app/assets/fonts/Effra_W_Lt.woff') format('woff');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'effra';
+  src: url('../app/assets/fonts/Effra_W_Rg.eot');
+  src: url('../app/assets/fonts/Effra_W_Rg.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 // Body text
 // -----------------------------------
 b,strong{

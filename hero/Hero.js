@@ -2,6 +2,7 @@ import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
 import Title from '../title/Title';
 import Nav from '../navigation/Nav';
+import SearchMask from '../search_mask/SearchMask';
 import css from './Hero.scss';
 import '../scss/Grid.scss';
 import '../settings/Settings.scss';
@@ -61,6 +62,7 @@ class Hero extends React.Component {
               title="Find your best way to anywhere"
               text="Compare and book Flights, Trains, Buses and Transfers"
             />
+            <SearchMask />
           </div>
         </div>
         <div className="hero-foot">

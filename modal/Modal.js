@@ -3,7 +3,15 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './Modal.scss';
 
 class Modal extends React.Component {
+  constructor() {
+    super();
+    this.modalBodyClass = this.modalBodyClass.bind(this);
+  }
+  modalBodyClass() {
+    document.body.className = this.props.isOpen ? 'modal-open' : '';
+  }
   render(){
+    this.modalBodyClass();
     const TransitionOptions = {
       transitionName: "modal",
       transitionEnterTimeout: 500,

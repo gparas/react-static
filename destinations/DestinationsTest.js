@@ -35,7 +35,6 @@ class DestinationsTest extends React.Component {
         data.hits.forEach((element, i) => {
           _.extend(element, this.data[i]);
         });
-        console.log(data.hits)
         this.setState({ destination: data.hits });
       });
   }
