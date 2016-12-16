@@ -3,37 +3,33 @@
   margin:2px 0 0;
   padding: 0;
   list-style: none;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: 3px;
+  background-color: #f4f4f4;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
   width: 100%;
   z-index: 1000;
+  border: 1px solid #e6e6e6;
 
-  > li > a{
-    position: relative;
-    display: block;
-    font-size: 14px;
-    color: lighten($text-color, 20%);
-    text-align: left;
-    padding: $space-s $space-m;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    &:hover,
-    &:focus{
-      background-color: #f5f5f5;
+  > li {
+    + li {
+      border-top: 1px solid #e6e6e6;
     }
-  }
-  li:not(:last-child) > a{
-    &:after{
-      position: absolute;
-      left: $space-m;
-      bottom: 0;
-      content: '';
-      width: 100%;
-      height: 1px;
-      background-color: #ddd;
+    > a{
+      position: relative;
+      display: block;
+      height: 44px;
+      line-height: 44px;
+      padding: 0 $space-m;
+      color: #656b6f;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:hover,
+      &:focus{
+        background-color: #eee;
+      }
     }
   }
 }

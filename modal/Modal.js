@@ -49,7 +49,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  openModal: false
+  isOpen: false
 };
 
 export default Modal

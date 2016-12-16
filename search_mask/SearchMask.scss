@@ -40,22 +40,22 @@
 // --------------------------------------------------
 .dropdown-enter {
   opacity: 0;
-  transform: translate(0, 15%);
+  transform: translate3d(0,10px,0);
   
   &.dropdown-enter-active {
     opacity: 1;
-    transform: translate(0, 0);
-    transition: all 150ms ease-out;
+    transform: none;
+    transition: opacity .15s ease-in,transform .15s ease-in;
   }
 }
 
 .dropdown-leave {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: none;
 
   &.dropdown-leave-active {
     opacity: 0;
-    transform: translate(0, 15%);
-    transition: all 150ms ease-out;
+    transform: translate3d(0,10px,0);
+    transition: opacity .15s ease-out,transform .15s ease-out;
   }
 }
