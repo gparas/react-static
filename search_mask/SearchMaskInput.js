@@ -8,18 +8,21 @@ class SearchMaskInput extends React.Component {
       isOpen: false,
       searchString: '',
       airports: [
-        'Athens - Eleftherios Venizelos (ATH), Greece', 
-        'London - All airports (LON), United Kingdom', 
-        'Paris - All airports (PAR), France', 
-        'Berlin - Berlin Brandenburg Willy Brandt (BER), Germany', 
-        'Rome - All airports (ROM), Italy', 
-        'Thessaloniki - Macedonia International (SKG), Greece', 
-        'Amsterdam - Schiphol Int. Apt (AMS), Netherlands', 
+        {country: 'United Kingdom', name: 'All airports', code: 'LON', city: 'London'},
+        {country: 'France', name: 'All airports', code: 'PAR', city: 'Paris'},
+        {country: 'Germany', name: 'Berlin Brandenburg Willy Brandt', code: 'BER', city: 'Berlin'},
+        {country: 'Italy', name: 'All airports', code: 'ROM', city: 'Rome'},
+        {country: 'Turkey', name: 'Ataturk Airport', code: 'IST', city: 'Istanbul'},
+        {country: 'Sweden', name: 'All airports', code: 'STO', city: 'Stockholm'},
+        {country: 'Czech Republic', name: 'Vaclav Havel Prague Airport', code: 'PRG', city: 'Prague'},
+        {country: 'Spain', name: 'Barcelona Int. Apt', code: 'BCN', city: 'Barcelona'},
+        {country: 'Switzerland', name: 'Zurich Int. Apt', code: 'ZRH', city: 'Zurich'},
       ]
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
   handleChange(e){
     this.setState({ searchString: e.target.value, isOpen: true });
@@ -27,14 +30,18 @@ class SearchMaskInput extends React.Component {
   handleFocus(e) {
     e.target.select();
   }
+  handleClose() {
+    this.setState({ isOpen: false });
+  }
   handleClick(item){
-    const location = item.target.title
+    const location = item.target.title;
     this.setState({ searchString: location, isOpen: false });
+    this.props.onSelectCity(item.target.dataset.city);
   }
   render(){
     let filteredAirport = this.state.airports.filter(
       (airport) => {
-        return airport.toLowerCase().indexOf(this.state.searchString.toLowerCase()) !== -1;
+        return airport.city.toLowerCase().indexOf(this.state.searchString.toLowerCase()) !== -1;
       }
     );
     const TransitionOptions = {
@@ -42,9 +49,17 @@ class SearchMaskInput extends React.Component {
       transitionEnterTimeout: 500,
       transitionLeaveTimeout: 500
     };
+    const cover = {
+      position: 'fixed',
+      top: '0px',
+      right: '0px',
+      bottom: '0px',
+      left: '0px',
+      zIndex: '2',
+    }
     const { searchString, isOpen } = this.state;
     return (
-      <div className="form-control">
+      <div className="form-control has-icon">
         <input 
           type="text"
           value={searchString}
@@ -57,13 +72,23 @@ class SearchMaskInput extends React.Component {
           {...TransitionOptions} 
         >
         {isOpen ?
-          <ul className="dropdown"> 
-            {filteredAirport.map((item, i) =>
-              <li key={i}>
-                <a href="#" title={item} onClick={ this.handleClick }>{item}</a>
-              </li>
-            )}
-          </ul>
+          <div>
+            <div style={ cover } onClick={ this.handleClose } />
+            <ul className="dropdown"> 
+              {filteredAirport.map((item, i) =>
+                <li key={i}>
+                  <a 
+                    href="#"
+                    data-city={item.city}
+                    title={`${item.city} - ${item.name} (${item.code}), ${item.country}`} 
+                    onClick={ this.handleClick }
+                  >
+                    {item.city} - {item.name} ({item.code}), {item.country}
+                  </a>
+                </li>
+              )}
+            </ul>
+          </div>
           : null
         }
         </ReactCSSTransitionGroup>
@@ -71,5 +96,9 @@ class SearchMaskInput extends React.Component {
     );
   }
 }
+
+SearchMaskInput.propTypes = {
+  onSelectCity: React.PropTypes.func
+};
 
 export default SearchMaskInput

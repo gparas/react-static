@@ -12,15 +12,15 @@ class DestinationList extends React.Component {
       <div className="grid-item is-one-third">
         <figure>
           <ImageLoader
-            src={`${this.props.image}`}
+            src={`../app/assets/images/destinations/${this.props.city}.jpg`}
             preloader={this.preloader}
           >
             Image load failed!
           </ImageLoader>
           <figcaption>
             <div>
-            <span className="country">{this.props.title[0]}</span>
-              <strong>{this.props.title[1]}</strong>
+            <span className="country">{this.props.city}</span>
+              <strong>{this.props.caption}</strong>
             </div>
             <div className="text-right">
               <span className="days">{this.props.days} days</span>

@@ -14,12 +14,17 @@ class Hero extends React.Component {
       fullscreen: false,
       checked: false,
       options: false,
-      opacity: 4
+      opacity: 4,
+      city: 'paris'
     };
+    this.handleSelesctCity = this.handleSelesctCity.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  handleSelesctCity(cityValue){
+    this.setState({ city: cityValue.toLowerCase() });
+  };
   handleCheck() {
     this.setState({fullscreen: !this.state.fullscreen})
     this.setState({checked: !this.state.checked})
@@ -35,7 +40,7 @@ class Hero extends React.Component {
       'height': `${this.state.fullscreen ? window.innerHeight + 'px' : '' }`
     };
     const bgImage = {
-      'backgroundImage': 'url(https://source.unsplash.com/1600x900/?city,paris)',
+      'backgroundImage': `url(../app/assets/images/destinations/${this.state.city}.jpg)`,
       'opacity': `.${this.state.opacity}`
     };
     const cover = {
@@ -62,7 +67,7 @@ class Hero extends React.Component {
               title="Find your best way to anywhere"
               text="Compare and book Flights, Trains, Buses and Transfers"
             />
-            <SearchMask />
+            <SearchMask onSelectCityName={this.handleSelesctCity}/>
           </div>
         </div>
         <div className="hero-foot">
