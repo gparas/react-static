@@ -22,7 +22,7 @@ class SearchMaskInput extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
   handleChange(e){
     this.setState({ searchString: e.target.value, isOpen: true });
@@ -30,13 +30,13 @@ class SearchMaskInput extends React.Component {
   handleFocus(e) {
     e.target.select();
   }
-  handleClose() {
-    this.setState({ isOpen: false });
-  }
   handleClick(item){
     const location = item.target.title;
     this.setState({ searchString: location, isOpen: false });
     this.props.onSelectCity(item.target.dataset.city);
+  }
+  handleBlur(){
+    this.setState({ isOpen: false });
   }
   render(){
     let filteredAirport = this.state.airports.filter(
@@ -49,46 +49,36 @@ class SearchMaskInput extends React.Component {
       transitionEnterTimeout: 500,
       transitionLeaveTimeout: 500
     };
-    const cover = {
-      position: 'fixed',
-      top: '0px',
-      right: '0px',
-      bottom: '0px',
-      left: '0px',
-      zIndex: '2',
-    }
     const { searchString, isOpen } = this.state;
     return (
-      <div className="form-control has-icon">
+      <div className="form-control">
         <input 
           type="text"
           value={searchString}
           onChange={this.handleChange}
           placeholder={this.props.placeholder}
           onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
         />
-        <span className={`${searchString ? 'text-success' : ''} icon-map-pin`}></span>
+        {/*<span className={`${searchString ? 'text-success' : ''} icon-map-pin`}></span>*/}
         <ReactCSSTransitionGroup 
           {...TransitionOptions} 
         >
         {isOpen ?
-          <div>
-            <div style={ cover } onClick={ this.handleClose } />
-            <ul className="dropdown"> 
-              {filteredAirport.map((item, i) =>
-                <li key={i}>
-                  <a 
-                    href="#"
-                    data-city={item.city}
-                    title={`${item.city} - ${item.name} (${item.code}), ${item.country}`} 
-                    onClick={ this.handleClick }
-                  >
-                    {item.city} - {item.name} ({item.code}), {item.country}
-                  </a>
-                </li>
-              )}
-            </ul>
-          </div>
+          <ul className="dropdown"> 
+            {filteredAirport.map((item, i) =>
+              <li key={i}>
+                <a 
+                  href="#"
+                  data-city={item.city}
+                  title={`${item.city} (${item.code}), ${item.country}`} 
+                  onClick={ this.handleClick }
+                >
+                  <b>{item.city}</b> - {item.name} ({item.code}), {item.country}
+                </a>
+              </li>
+            )}
+          </ul>
           : null
         }
         </ReactCSSTransitionGroup>

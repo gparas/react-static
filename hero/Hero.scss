@@ -27,6 +27,7 @@ $hero-nav-color: text-contrast($hero-bgc);
   right: 0;
   background: 50% 50% no-repeat;
   background-size: cover;
+  transition: all .3s ease-in;
 }
 
 // Hero body

@@ -11,6 +11,7 @@ import Testimonial from './testimonial/Testimonial';
 import Icons from './icons/Icons';
 import Test from './Test';
 import Deals from './Deals';
+import AppStore from './appStore/AppStore';
 
 class App extends React.Component {
   render(){
@@ -21,6 +22,7 @@ class App extends React.Component {
         <Destinations />
         <Deals />
         <Testimonial />
+        <AppStore />
         {/*<DestinationsTest />*/}
       </div>
     )

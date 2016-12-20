@@ -1,46 +1,62 @@
 import React from 'react';
+import { DateRangePicker } from 'react-dates';
 import SearchMaskInput from './SearchMaskInput';
+import SearchMaskOptions from './SearchMaskOptions';
 import css from './SearchMask.scss';
 
 class SearchMask extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      focusedInput: null,
+      startDate: null,
+      endDate: null,
+    };
+
+    this.onDatesChange = this.onDatesChange.bind(this);
+    this.onFocusChange = this.onFocusChange.bind(this);
     this.handleSelesct = this.handleSelesct.bind(this);
   }
+
+  onDatesChange({ startDate, endDate }) {
+    this.setState({ startDate, endDate });
+  }
+
+  onFocusChange(focusedInput) {
+    this.setState({ focusedInput });
+  }
+
   handleSelesct(cityValue){
     this.props.onSelectCityName(cityValue.toLowerCase());
   };
   render(){
+    const { focusedInput, startDate, endDate } = this.state;
     return (
       <div id="search-mask">
-        <div className="form-control has-icon">
+        <div className="form-control">
           <input 
             type="text" 
-            value='Athens - Eleftherios Venizelos (ATH), Greece'
+            value='Athens (ATH), Greece'
             placeholder="From city or airport" 
             readOnly
           />
-          <span className="icon-map-pin text-success"></span>
         </div>
         <SearchMaskInput 
-          placeholder="To city, country or region" 
+          placeholder="To city or country" 
           onSelectCity={this.handleSelesct}
         />
-        <div className="form-control has-icon">
-          <input 
-            type="text" 
-            value="12/06/2017 - 22/06/2017" 
-            placeholder="Departure - Arrival"
-            readOnly
-          />
-          <span className="icon-calendar text-success"></span>
-        </div>
-        <div className="form-control has-icon">
-          <div className="select-options">
-            1
-            <span className="class-type">economy</span>
-          </div>
-          <span className="icon-person text-success"></span>
+        <DateRangePicker
+          {...this.props}
+          onDatesChange={this.onDatesChange}
+          onFocusChange={this.onFocusChange}
+          focusedInput={focusedInput}
+          startDate={startDate}
+          endDate={endDate}
+          numberOfMonths={2}
+        />
+        <SearchMaskOptions />
+        <div className="form-control">
+          <input type="submit" value="Search" />
         </div>
       </div>
     );

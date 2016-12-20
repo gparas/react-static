@@ -23,7 +23,7 @@ class DestinationList extends React.Component {
               <strong>{this.props.caption}</strong>
             </div>
             <div className="text-right">
-              <span className="days">{this.props.days} days</span>
+              <span className="days">from</span>
               <strong>{this.props.price}€</strong>
             </div>
           </figcaption>

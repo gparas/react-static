@@ -37,7 +37,6 @@ class Destinations extends React.Component {
         city={item.city}
         caption={item.caption}
         price={Math.floor((Math.random() * 500) + 100)}
-        days={Math.floor((Math.random() * 15) + 1)}
       />
     );
     const TransitionOptions = {
