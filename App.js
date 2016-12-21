@@ -13,6 +13,7 @@ import Test from './Test';
 import Deals from './Deals';
 import AppStore from './appStore/AppStore';
 import Newsletter from './newsletter/Newsletter';
+import Footer from './footer/Footer';
 
 class App extends React.Component {
   render(){
@@ -24,6 +25,7 @@ class App extends React.Component {
         <Testimonial />
         <Deals />
         <Newsletter />
+        <Footer />
       </div>
     )
   }
