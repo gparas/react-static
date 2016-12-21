@@ -30,18 +30,18 @@ class SearchMaskInput extends React.Component {
   handleFocus(e) {
     e.target.select();
   }
+  handleBlur(){
+    this.setState({ isOpen: false });
+  }
   handleClick(item){
     const location = item.target.title;
     this.setState({ searchString: location, isOpen: false });
     this.props.onSelectCity(item.target.dataset.city);
   }
-  handleBlur(){
-    this.setState({ isOpen: false });
-  }
   render(){
     let filteredAirport = this.state.airports.filter(
       (airport) => {
-        return airport.city.toLowerCase().indexOf(this.state.searchString.toLowerCase()) !== -1;
+        return airport.city.indexOf(this.state.searchString) !== -1;
       }
     );
     const TransitionOptions = {

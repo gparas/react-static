@@ -12,7 +12,7 @@ $navbar-color: $text-color;
   .navbar-brand{
     display: block;
     font-weight: 500;
-    padding: ($line-height-computed/2) $space-m;
+    padding: 10px $space-m;
     color: $navbar-brand-color;
 
     &:hover,
@@ -30,7 +30,7 @@ $navbar-color: $text-color;
     > li > a{
       color: $navbar-color;
       display: block;
-      padding: ($line-height-computed/2) $space-m;
+      padding: 10px $space-m;
 
       &:hover,
       &:focus{
@@ -42,4 +42,42 @@ $navbar-color: $text-color;
       }
     }
   }
+}
+
+.navbar-left,
+.navbar-right{
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link{
+  position: relative;
+  padding: 10px $space-m;
+  color: #fff;
+
+  &:hover,
+  &:focus{
+    color: darken(#fff, 10%);
+  }
+
+  img{
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  [class*=icon-]{
+    font-size: 24px;
+  }
+}
+
+.navbar-badge{
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  width: 16px;
+  border-radius: 100%;
+  text-align: center;
+  background-color: $danger;
 }

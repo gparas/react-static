@@ -33,6 +33,20 @@ $hero-nav-color: text-contrast($hero-bgc);
 // Hero body
 // --------------------------------------------------
 
+.hero-head{
+  position: relative;
+  background-color: rgba(#000, .1);
+
+  @media screen and (max-width: 480px){
+    .navbar-nav{
+      display: none;
+    }
+    .hidden-xs{
+      display: none;
+    }
+  }
+}
+
 .hero-body{
   position: relative;
   text-align: center;
