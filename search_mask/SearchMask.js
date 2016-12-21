@@ -57,6 +57,7 @@ class SearchMask extends React.Component {
         <SearchMaskOptions />
         <div className="form-control">
           <input type="submit" value="Search" />
+          <span className="icon-search"></span>
         </div>
       </div>
     );

@@ -12,6 +12,7 @@ import Icons from './icons/Icons';
 import Test from './Test';
 import Deals from './Deals';
 import AppStore from './appStore/AppStore';
+import Newsletter from './newsletter/Newsletter';
 
 class App extends React.Component {
   render(){
@@ -20,10 +21,9 @@ class App extends React.Component {
         <Hero />
         <Features />
         <Destinations />
-        <Deals />
         <Testimonial />
-        <AppStore />
-        {/*<DestinationsTest />*/}
+        <Deals />
+        <Newsletter />
       </div>
     )
   }

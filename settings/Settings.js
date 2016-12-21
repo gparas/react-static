@@ -48,7 +48,11 @@ class Settings extends React.Component {
         <div className="settings-trigger" onClick={ this.handleClick }><span className="icon-tools-2"></span></div>
         { this.state.displayColorPicker ? <div style={ popover }>
           <div style={ cover } onClick={ this.handleClose } />
-          <TwitterPicker triangle="top-right" onChange={ this.handleChange }/>
+          <TwitterPicker 
+            triangle="top-right" 
+            onChange={ this.handleChange }
+            colors={['#EA7600', '#84BD00 ', '#DA1884', '#585858', '#ABABAB', '#00A3E0', '#981D97', '#00A499', '#D5D5D5']}
+          />
         </div> : null }
       </div>
     );

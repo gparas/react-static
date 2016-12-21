@@ -13,14 +13,17 @@ class Hero extends React.Component {
     this.state = {
       fullscreen: false,
       checked: false,
+      selected: false,
       options: false,
       opacity: 4,
+      SearchMaskV2: false, 
       city: 'paris'
     };
     this.handleSelesctCity = this.handleSelesctCity.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeHeroMask = this.handleChangeHeroMask.bind(this);
   }
   handleSelesctCity(cityValue){
     this.setState({ city: cityValue.toLowerCase() });
@@ -28,6 +31,10 @@ class Hero extends React.Component {
   handleCheck() {
     this.setState({fullscreen: !this.state.fullscreen})
     this.setState({checked: !this.state.checked})
+  }
+  handleChangeHeroMask() {
+    this.setState({selected: !this.state.selected})
+    this.setState({SearchMaskV2: !this.state.SearchMaskV2}) 
   }
   handleClick() {
     this.setState({options: !this.state.options})
@@ -52,7 +59,7 @@ class Hero extends React.Component {
     };
     return (
       <section 
-        className="hero is-dark settings"
+        className={`hero is-dark settings ${this.state.SearchMaskV2 ? 'v2' : ''}`}
         style={heroHeight}
       >
         <div className="hero-image" style={bgImage}></div>
@@ -67,6 +74,7 @@ class Hero extends React.Component {
               title="Find your best way to anywhere"
               text="Compare and book Flights, Trains, Buses and Transfers"
             />
+            <p>&nbsp;</p>
             <SearchMask onSelectCityName={this.handleSelesctCity}/>
           </div>
         </div>
@@ -99,8 +107,19 @@ class Hero extends React.Component {
               </label>
             </div>
             <div className="option-item">
-              <div>Full Screen</div>
+              <div>Overlay</div>
               <input type="number" min="1" max="5" value={this.state.opacity} onChange={this.handleChange}/>
+            </div>
+            <div className="option-item">
+              <div>Search Mask v2</div>
+              <label className="switch">
+                <input 
+                  type="checkbox"
+                  checked={this.state.selected}
+                  onChange={this.handleChangeHeroMask} 
+                />
+                <div className="slider"></div>
+              </label>
             </div>
           </div>
           : null

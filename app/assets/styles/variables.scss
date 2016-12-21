@@ -39,6 +39,9 @@ $line-height-base:        1.5;
 
 $line-height-computed:    floor(($font-size-base * $line-height-base));
 
+$headings-font-family:    "effra", Helvetica, Arial, sans-serif;
+$headings-font-weight:    300;
+
 //== Grid
 //
 $grid-gutter-width:         $space-default;

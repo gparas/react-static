@@ -25,7 +25,7 @@ class Testimonial extends React.Component {
     )
     return(
       <Settings background="#f5f5f5">
-        <section id="testimonial" className="v-space">
+        <section id="testimonial" className="v-space-s">
           <div className="container">
             <OwlCarousel slideSpeed={300} pagination={true} singleItem={true} >
               {userList}

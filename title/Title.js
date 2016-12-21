@@ -6,7 +6,7 @@ class Title extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      html: `<h1 class="primary-title">${props.title}</h1><p class="secondary-title">${props.text}</p>`
+      html: `<h1 class="primary-title ${props.titleClass}">${props.title}</h1><p class="secondary-title">${props.text}</p>`
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -28,7 +28,8 @@ class Title extends React.Component {
 
 Title.propTypes = {
   title: React.PropTypes.string,
-  text: React.PropTypes.string
+  text: React.PropTypes.string,
+  titleClass: React.PropTypes.string
 };
 
 export default Title

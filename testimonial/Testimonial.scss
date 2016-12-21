@@ -14,7 +14,8 @@
     font-size: 32px;
     line-height: 1.2;
     margin: 0 auto;
-    font-weight: 300;
+    font-weight: $headings-font-weight;
+    font-family: $headings-font-family;
   }
 
   p{

@@ -4,19 +4,20 @@
 
 .primary-title {
   font-size: 48px;
-  font-weight: 300;
+  font-weight: $headings-font-weight;
   line-height: 56px;
   margin-top: 0;
   margin-bottom: $space-m;
+  font-family: $headings-font-family;
 
-  @media (max-width: 991px) and (min-width: 768px){
+  &.is-smaller{
     font-size: 32px;
-    line-height: 1.5;
+    line-height: 1.2;
   }
 
-  @media (max-width: 479px){
-    font-size: 36px;
-    line-height: 40px;
+  @media screen and (max-width: 768px){
+    font-size: 32px;
+    line-height: 1.2;
   }
 }
 
