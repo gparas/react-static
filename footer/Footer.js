@@ -6,9 +6,28 @@ class Footer extends React.Component {
   render(){
     return (
       <Settings background="#1a1a1a">
-        <footer className="site-footer v-space-s">
+        <footer className="site-footer">
           <div className="container">
-            <div className="grid">
+            <div className="footer-link">
+              <a href="#">About Us</a>
+              <a href="#">Jobs</a>
+              <a href="#">Press</a>
+              <a href="#">Affiliate</a>
+              <a href="#">Terms of Use</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Airlines</a>
+              <a href="#">Apps</a>
+              <a href="#">Help</a>
+            </div>
+            <div className="test">
+              <img src="../app/assets/images/appstore.png"/>&nbsp;&nbsp;
+              <img src="../app/assets/images/googleplay.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#"><span className="icon-facebook"></span></a>&nbsp;&nbsp;
+              <a href="#"><span className="icon-twitter"></span></a>&nbsp;&nbsp;
+              <a href="#"><span className="icon-googleplus"></span></a>&nbsp;&nbsp;
+              <a href="#"><span className="icon-linkedin"></span></a>
+            </div>
+            <div className="grid grid-block">
               <div className="grid-item is-one-third">
                 <h3>Top countries</h3>
                 <a href="#">Flights to United States</a>

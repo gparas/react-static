@@ -1,8 +1,38 @@
 .site-footer{
+  padding-bottom: 48px;
+  
+  .container{
+    max-width: 980px;
+  }
   a{
     display: block;
     color: inherit;
-    font-size: 14px;
+    font-size: 12px;
     opacity: .6;
+  }
+
+  .footer-link{
+    padding: 48px 0;
+    display: flex;
+    justify-content: center;
+    a{
+      padding: 8px;
+      font-size: 16px;
+    }
+  }
+
+  .test{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    [class*=icon-]{
+      font-size: 32px;
+    }
+
+    img{
+      height: 48px;
+      width: auto;
+    }
   }
 }
