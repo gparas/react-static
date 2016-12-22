@@ -21,7 +21,7 @@ input[type="color"]{
   font-size: $font-size-base;
   line-height: 54px;
   color: lighten($text-color, 20%);
-  background-color: #fff;
+  background-color: #fff !important;
   background-image: none; 
   border: 1px solid #ccc;
   border-radius: 3px;

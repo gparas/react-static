@@ -52,7 +52,7 @@ class SearchMaskOptions extends React.Component {
         {isOpen ?
           <span>
             <div style={ cover } onClick={ this.handleClose } />
-            <ul className="dropdown"> 
+            <ul className="dropdown-menu"> 
               <li>
                 <div className="select-passengers">
                   <b>Adults <span>(12+)</span></b>
