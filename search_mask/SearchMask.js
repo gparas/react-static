@@ -83,6 +83,8 @@ class SearchMask extends React.Component {
           placeholder="To city or airport"
           filterBy={['city', 'name', 'country']}
           labelKey={this._labelKey}
+          paginate={true}
+          maxResults={3}
           renderMenuItemChildren={this._renderMenuItemChildren}
         />
         <DateRangePicker

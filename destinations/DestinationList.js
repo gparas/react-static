@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import ImageLoader from 'react-imageloader';
 import Preloader from './Preloader';
 import '../scss/Grid.scss';
@@ -27,7 +28,7 @@ class DestinationList extends React.Component {
               <strong>{this.props.price}€</strong>
             </div>
           </figcaption>
-          <a href="#"></a>
+          <Link to="/test"></Link>
         </figure>
       </div>
     );

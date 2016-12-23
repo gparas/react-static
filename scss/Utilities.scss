@@ -72,10 +72,25 @@ $colors: (
 
 
 
- // 
+ //////////////////////////////////////////////
  .owl-theme{
     margin-left: -8px;
    .owl-item > .text-center{
     margin: 16px 8px;
    }
  }
+
+ .animation-enter {
+    bottom: 0;
+    right: -100%;
+}
+.animation-enter-active {
+    right: 0;
+}
+.animation-leave {
+    right: 0;
+}
+.animation-leave-active {
+    bottom: 0;
+    right: -100%;
+}

@@ -1,47 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class Test extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      searchString: '',
-      person: []
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleChange(e){
-    this.setState({ searchString: e.target.value });
-  };
-  // componentDidMount() {
-  //   this.handleSubmit();
-  // }
-  handleSubmit(e) {
-    e.preventDefault();
-    return $.getJSON(`https://pixabay.com/api/?key=3996820-5e281734e93c2d6d757f757d0&q=${this.state.searchString}&image_type=photo&min_width=800&min_height=480&orientation=horizontal`)
-      .then((data) => {
-        this.setState({ person: data.hits });
-      });
-      console.log(data.hits);
-  }
   render(){
-    const persons = this.state.person.map((item, i) => {
-      return <div key={i}>
-        <img src={item.previewURL} />
-      </div>
-    });
+    const style = {
+      position: 'fixed',
+      height: '100%',
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#ffffff',
+      zIndex: '9999',
+      transition: 'all 0.35s ease-out'
+    }
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input 
-            type="text" 
-            value={this.state.searchString} 
-            onChange={this.handleChange} 
-            placeholder="Search icon..."
-          />
-          <input type="submit" value="Submit" />
-        </form>
-        {persons}
+      <div style={style}>
+        Test router
+        <Link to="/">Go to home</Link>
       </div>
     );
   }
