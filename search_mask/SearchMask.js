@@ -12,11 +12,12 @@ class SearchMask extends React.Component {
       focusedInput: null,
       startDate: null,
       endDate: null,
-      selected: [],
     };
 
     this.onDatesChange = this.onDatesChange.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.renderSelectedItems = this.renderSelectedItems.bind(this);
   }
 
   onDatesChange({ startDate, endDate }) {
@@ -24,6 +25,9 @@ class SearchMask extends React.Component {
   }
   onFocusChange(focusedInput) {
     this.setState({ focusedInput });
+  }
+  handleFocus(e){
+    e.target.select();
   }
   _renderMenuItemChildren(props, option, idx) {
     return [
@@ -36,10 +40,10 @@ class SearchMask extends React.Component {
   _labelKey(option){
     return `${option.city} (${option.code}), ${option.country}`;
   }
-  _renderSelectedItems(selected) {
-    return selected && selected.length ?
-      selected.map(option => (option.city).toLowerCase()) :
-      [''];
+  renderSelectedItems(selected) {
+    if (selected && selected.length) {
+      this.props.selectedCity((selected[0].city).toLowerCase());
+    }
   }
   render(){
     const airportSelected = [
@@ -56,9 +60,7 @@ class SearchMask extends React.Component {
       {country: 'Spain', name: 'Barcelona Int. Apt', code: 'BCN', city: 'Barcelona'},
       {country: 'Switzerland', name: 'Zurich Int. Apt', code: 'ZRH', city: 'Zurich'},
     ];
-    const { focusedInput, startDate, endDate, selected } = this.state;
-    let test = this._renderSelectedItems(selected)
-    console.log(test)
+    const { focusedInput, startDate, endDate } = this.state;
     return (
       <div id="search-mask">
         <Typeahead
@@ -66,6 +68,7 @@ class SearchMask extends React.Component {
           onChange={this._handleChange}
           defaultSelected={airportSelected}
           minLength={1}
+          onFocus={this.handleFocus}
           placeholder="From city or airport"
           filterBy={['city', 'name', 'country']}
           labelKey={this._labelKey}
@@ -73,8 +76,10 @@ class SearchMask extends React.Component {
         />
         <Typeahead
           options={airports}
-          onChange={selected => this.setState({selected})}
+          onChange={this.renderSelectedItems}
+          onBlur={this.props.onBlur}
           minLength={1}
+          onFocus={this.handleFocus}
           placeholder="To city or airport"
           filterBy={['city', 'name', 'country']}
           labelKey={this._labelKey}
@@ -90,17 +95,21 @@ class SearchMask extends React.Component {
           numberOfMonths={2}
         />
         <SearchMaskOptions />
-        <div className="form-control">
-          <input type="submit" value="Search" onClick={this.props.onClick}/>
-          <span className="icon-search"></span>
-        </div>
+        <button 
+          type="submit" 
+          className="btn is-success" 
+          onClick={this.props.onClick}>
+            Search
+            <span className="icon-search"></span>
+          </button>
       </div>
     );
   }
 }
 
 SearchMask.propTypes = {
-  onClick: React.PropTypes.func
+  onClick: React.PropTypes.func,
+  selectedCity: React.PropTypes.func
 };
 
 export default SearchMask

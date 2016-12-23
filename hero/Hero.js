@@ -16,17 +16,17 @@ class Hero extends React.Component {
       selected: false,
       options: false,
       opacity: 4,
-      SearchMaskV2: false, 
-      city: 'paris'
+      SearchMaskV2: true, 
+      city: ''
     };
-    this.handleSelesctCity = this.handleSelesctCity.bind(this);
+    this.handleSelectedChildCity = this.handleSelectedChildCity.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeHeroMask = this.handleChangeHeroMask.bind(this);
   }
-  handleSelesctCity(cityValue){
-    this.setState({ city: cityValue.toLowerCase() });
+  handleSelectedChildCity(selectedCity){
+    this.setState({ city: selectedCity });
   };
   handleCheck() {
     this.setState({fullscreen: !this.state.fullscreen})
@@ -42,13 +42,17 @@ class Hero extends React.Component {
   handleChange(e){
     this.setState({opacity: e.target.value});
   }
+  handleChildClick(e){
+    alert("The Child HTML is: " + e.target.value);
+  }
   render(){
+    const { fullscreen, opacity, city } = this.state;
     const heroHeight = {
-      'height': `${this.state.fullscreen ? window.innerHeight + 'px' : '' }`
+      'height': `${fullscreen ? window.innerHeight + 'px' : '' }`
     };
     const bgImage = {
-      'backgroundImage': `url(../app/assets/images/destinations/${this.state.city}.jpg)`,
-      'opacity': `.${this.state.opacity}`
+      'backgroundImage': `url(../app/assets/images/destinations/${city.length ? city : 'paris'}.jpg)`,
+      'opacity': `.${opacity}`
     };
     const cover = {
       position: 'fixed',
@@ -75,7 +79,10 @@ class Hero extends React.Component {
               text="Compare and book Flights, Trains, Buses and Transfers"
             />
             <p>&nbsp;</p>
-            <SearchMask onSelectCityName={this.handleSelesctCity}/>
+            <SearchMask 
+              selectedCity={this.handleSelectedChildCity}
+              onClick={this.handleChildClick.bind(this)} 
+            />
           </div>
         </div>
         <div className="hero-foot">

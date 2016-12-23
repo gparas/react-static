@@ -37,7 +37,7 @@ class SearchMaskOptions extends React.Component {
     }
     const { inputVal, isOpen } = this.state;
     return (
-      <div className="form-control has-icon" >
+      <div className="form-oprions">
         <button 
           className="select-options" 
           onClick={this.handleClick}
@@ -45,7 +45,6 @@ class SearchMaskOptions extends React.Component {
           {inputVal}&nbsp;
           {inputVal > 1 ? 'Passengers' : 'Passenger'}
         </button>
-        <span className="icon-person text-success"></span>
         <ReactCSSTransitionGroup 
           {...TransitionOptions} 
         >
