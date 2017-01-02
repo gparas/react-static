@@ -39,11 +39,6 @@ class Destinations extends React.Component {
         price={Math.floor((Math.random() * 500) + 100)}
       />
     );
-    const TransitionOptions = {
-      transitionName: "scale-fade",
-      transitionEnterTimeout: 500,
-      transitionLeaveTimeout: 500
-    };
     return (
       <section id="destinations" className="v-space">
         <div className="container">
@@ -51,13 +46,9 @@ class Destinations extends React.Component {
               title="Top destinations"
               text="Proin iaculis erat nec sapien vehicula scelerisque"
             />
-          <ReactCSSTransitionGroup 
-            component="div"
-            className="grid grid-block"
-            {...TransitionOptions} 
-          >
-            {item}
-          </ReactCSSTransitionGroup>
+            <div className="grid grid-block">
+              {item}
+            </div>
         </div>
       </section>
     );

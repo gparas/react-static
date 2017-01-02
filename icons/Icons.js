@@ -31,6 +31,7 @@ class Icons extends React.Component {
     this.setState({ modalIsOpen: false });
   }
   render(){
+    const { selectedItem, modalIsOpen, searchString } = this.state;
     let filteredIcons = this.state.data.filter(
       (icon) => {
         return icon.toLowerCase().indexOf(this.state.searchString.toLowerCase()) !== -1;
@@ -39,18 +40,18 @@ class Icons extends React.Component {
     return (
       <div>
         <span 
-          className={this.state.selectedItem} 
+          className={selectedItem} 
           onClick={this.openModal}
         >
         </span>
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={modalIsOpen}
           closeModal={this.closeModal}
         >
           <div className="modal-search">
             <input 
               type="text" 
-              value={this.state.searchString} 
+              value={searchString} 
               onChange={this.handleChange} 
               placeholder="Search icon..."
             />

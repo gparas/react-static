@@ -5,7 +5,6 @@ import Destinations from './destinations/Destinations';
 import DestinationsTest from './destinations/DestinationsTest';
 import Testimonial from './testimonial/Testimonial';
 import Icons from './icons/Icons';
-import Test from './Test';
 import Deals from './Deals';
 import AppStore from './appStore/AppStore';
 import Newsletter from './newsletter/Newsletter';

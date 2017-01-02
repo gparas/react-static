@@ -29,6 +29,7 @@ class DestinationList extends React.Component {
             </div>
           </figcaption>
           <Link to="/test"></Link>
+          <Link to={`/${this.props.city}`}></Link>
         </figure>
       </div>
     );

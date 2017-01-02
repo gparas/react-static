@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-class Test extends React.Component {
+class Barcelona extends React.Component {
   render(){
     const style = {
       position: 'fixed',
@@ -12,15 +12,14 @@ class Test extends React.Component {
       justifyContent: 'center',
       background: '#ffffff',
       zIndex: '9999',
-      transition: 'all 0.35s ease-out'
+      transition: 'all 0.35s ease-in-out'
     }
     return (
       <div style={style}>
-        Test router
-        <Link to="/">Go to home</Link>
+        Barcelona <Link to="/">Go to home</Link>
       </div>
     );
   }
 }
 
-export default Test
+export default Barcelona
