@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Link, hashHistory } from 'react-router';
 import Home from './Home';
 import Barcelona from './landing/Barcelona';
+import Berlin from './landing/Berlin';
 
 import './scss/Normalize.scss';
 import './scss/Scaffolding.scss';
@@ -14,6 +15,7 @@ class App extends React.Component {
       <Router history={ hashHistory }>
         <Route path="/" component={Home}>
           <Route path="/barcelona" component={Barcelona}></Route>
+          <Route path="/berlin" component={Berlin}></Route>
         </Route>
       </Router>
     )

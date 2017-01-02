@@ -9,11 +9,12 @@ class DestinationList extends React.Component {
     return <Preloader />
   }
   render(){
+    const baseUrl = '/app/assets/images/destinations/';
     return (
       <div className="grid-item is-one-third">
         <figure>
           <ImageLoader
-            src={`../app/assets/images/destinations/${this.props.city}.jpg`}
+            src={`${baseUrl}${this.props.city}.jpg`}
             preloader={this.preloader}
           >
             Image load failed!

@@ -11,6 +11,7 @@ import Newsletter from './newsletter/Newsletter';
 import Footer from './footer/Footer';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import Slider from 'react-slick';
 
 class App extends React.Component {
   render(){
@@ -19,7 +20,7 @@ class App extends React.Component {
         <ReactCSSTransitionGroup
           transitionEnterTimeout={ 500 } transitionLeaveTimeout={ 500 }
           transitionName="animation" component="div" className="holder">
-          {this.props.children}
+            {this.props.children}
         </ReactCSSTransitionGroup>
         <Hero />
         <Features />
