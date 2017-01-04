@@ -35,8 +35,7 @@ input[type="color"]{
 
 input[type="submit"],
 .btn{
-  display: block;
-  width: 100%;
+  display: inline-block;
   height: 54px;
   padding: 0 24px;
   font-size: $font-size-base;
@@ -47,6 +46,13 @@ input[type="submit"],
   box-shadow: none;
   background-color: #FFF;
   font-weight: 600;
+
+  &.btn-sm{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
 
   &.is-primary{
     background-color: $primary;

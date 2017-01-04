@@ -51,7 +51,7 @@ class Settings extends React.Component {
           <TwitterPicker 
             triangle="top-right" 
             onChange={ this.handleChange }
-            colors={['#EA7600', '#84BD00 ', '#DA1884', '#222222', '#ABABAB', '#00A3E0', '#981D97', '#00A499', '#D5D5D5']}
+            colors={['#EA7600', '#84BD00 ', '#DA1884', '#222222', '#ABABAB', '#00A3E0', '#981D97', '#00A499', '#f5f5f5']}
           />
         </div> : null }
       </div>

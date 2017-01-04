@@ -1,10 +1,24 @@
 #download-app{
-  // background-image: url('../app/assets/images/city-overlay.png');
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  padding-top: $space-l;
+  background-image: url('../app/assets/images/bg.png');
+  background-repeat: no-repeat;
+  background-position: 50% 65%;
+  background-size: cover;
+  padding-top: $space-xl;
 
   .container{
-    max-width: 720px;
+    max-width: 1024px;
+  }
+
+  .test{
+    display: flex;
+    align-items: center;
+
+    div{
+      margin-left: 16px;
+    }
+
+    img + img{
+      margin-left: $space-s;
+    }
   }
 }

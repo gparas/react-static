@@ -46,3 +46,10 @@ img{
   max-width: 100%;
   height: auto;
 }
+
+hr {
+  margin-top:    $space-m;
+  margin-bottom: $space-m;
+  border: 0;
+  border-top: 1px solid #ddd;
+}

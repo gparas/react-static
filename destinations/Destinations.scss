@@ -27,6 +27,7 @@
     min-height: 250px;
     margin: 0;
     overflow: hidden;
+    transition: box-shadow .35s ease-out, transform .3s ease-out, opacity .2s ease-out;
 
     display: flex;
     flex-direction: column;
@@ -44,12 +45,12 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: scale(1);
-      transition: all .3s ease-out;
-
     }
-    &:hover img{
-      transform: scale(1.1);
+    &:hover{
+      cursor: pointer;
+      box-shadow:0 15px 20px rgba(0, 0, 0, 0.2);
+      transform: translate(0, -4px);
+      z-index: 999;
     }
 
     a{

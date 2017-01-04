@@ -43,6 +43,45 @@ you can use the generic selector below, but it's slower:
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-twitter:before {
+  content: "\f099";
+}
+.icon-facebook:before {
+  content: "\f09a";
+}
+.icon-google-plus:before {
+  content: "\f0d5";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+.icon-cc-visa:before {
+  content: "\f1f0";
+}
+.icon-cc-discover:before {
+  content: "\f1f2";
+}
+.icon-cc-amex:before {
+  content: "\f1f3";
+}
+.icon-cc-paypal:before {
+  content: "\f1f4";
+}
+.icon-facebook-with-circle:before {
+  content: "\e902";
+}
+.icon-google-with-circle:before {
+  content: "\e903";
+}
+.icon-linkedin-with-circle:before {
+  content: "\e904";
+}
+.icon-twitter-with-circle:before {
+  content: "\e905";
+}
+.icon-youtube-with-circle:before {
+  content: "\e906";
+}
 .icon-search:before {
   content: "\e901";
 }
@@ -355,23 +394,11 @@ you can use the generic selector below, but it's slower:
 .icon-sad:before {
   content: "\e05c";
 }
-.icon-facebook:before {
-  content: "\e05d";
-}
-.icon-twitter:before {
-  content: "\e05e";
-}
-.icon-googleplus:before {
-  content: "\e05f";
-}
 .icon-rss:before {
   content: "\e060";
 }
 .icon-tumblr:before {
   content: "\e061";
-}
-.icon-linkedin:before {
-  content: "\e062";
 }
 .icon-dribbble:before {
   content: "\e063";

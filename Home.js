@@ -9,6 +9,7 @@ import Deals from './Deals';
 import AppStore from './appStore/AppStore';
 import Newsletter from './newsletter/Newsletter';
 import Footer from './footer/Footer';
+import Copyright from './Copyright';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Slider from 'react-slick';
@@ -28,7 +29,9 @@ class App extends React.Component {
         <Testimonial />
         <Deals />
         <Newsletter />
+        <AppStore />
         <Footer />
+        <Copyright />
       </div>
     )
   }

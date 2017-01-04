@@ -29,6 +29,13 @@
 .m0{
   margin: 0;
 }
+.mb0{
+  margin-bottom: 0 !important;
+}
+
+.is-hidden{
+  display: none;
+}
 
 // Alignment
 // --------------------------------------------------
@@ -38,6 +45,10 @@
 }
 .text-right{
   text-align: right;
+}
+
+.text-small{
+  font-size: 11px !important;
 }
 
 // Contextual text
@@ -53,6 +64,7 @@ $colors: (
 @each $color, $properties in $colors{
   .text-#{$color}{
     color: nth($properties, 1)!important;
+    opacity: 1!important;
   }
 }
 
@@ -77,14 +89,6 @@ $colors: (
   margin-left: -8px;
   .owl-item > .text-center{
     margin: 16px 8px;
-  }
-  .owl-item img{
-    transition: box-shadow .35s ease-out, transform .3s ease-out, opacity .2s ease-out;
-    &:hover{
-      cursor: pointer;
-      box-shadow:0 15px 20px rgba(0, 0, 0, 0.2);
-      transform: translate(0, -4px);
-    }
   }
 }
 
@@ -128,7 +132,8 @@ $colors: (
     -webkit-tap-highlight-color: transparent
 }
 .slick-list {
-    overflow: hidden;
+    // overflow: hidden;
+    overflow-x: hidden;
     margin: 0;
     padding: 0
 }
@@ -192,7 +197,30 @@ $colors: (
 
 
 
+.deals-slider{
+  margin-left: -($grid-gutter-width/2);
+  margin-right: -($grid-gutter-width/2);
+  overflow: hidden;
+  padding-top: 4px;
 
+  .slick-list{
+    overflow: visible;
+  }
+
+  .slick-slide{
+    padding-left: ($grid-gutter-width/2);
+    padding-right: ($grid-gutter-width/2);
+
+    img{
+      transition: box-shadow .35s ease-out, transform .3s ease-out, opacity .2s ease-out;
+      &:hover{
+        cursor: pointer;
+        box-shadow:0 15px 20px rgba(0, 0, 0, 0.2);
+        transform: translate(0, -4px);
+      }
+    }
+  }
+}
 
 .slick-next,
 .slick-prev {
@@ -279,6 +307,7 @@ $colors: (
     // bottom: -25px;
     width: 100%;
     margin: 0;
+    padding: 0;
     list-style: none;
     text-align: center;
 }
@@ -287,7 +316,7 @@ $colors: (
     display: inline-block;
     // width: 20px;
     // height: 20px;
-    margin: 0 5px;
+    margin: 8px 4px;
     padding: 0;
     cursor: pointer
 }
@@ -300,6 +329,7 @@ $colors: (
     // padding: 5px;
     cursor: pointer;
     color: transparent;
+    padding: 0;
     border: 0;
     outline: 0;
     background: 0 0;
@@ -313,8 +343,8 @@ $colors: (
     opacity: 1;
 }
 .slick-dots li button:before {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 32px;
+    line-height: 32px;
     // position: absolute;
     // top: 0;
     // left: 0;

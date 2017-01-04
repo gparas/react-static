@@ -7,7 +7,7 @@ import css from './Newsletter.scss';
 class Newsletter extends React.Component {
   render(){
     return(
-      <Settings background="#222222">
+      <Settings background="#f5f5f5">
         <section id="newsletter" className="v-space-s">
           <div className="container">
             <Title

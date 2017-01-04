@@ -47,7 +47,6 @@ class Hero extends React.Component {
   }
   render(){
     const { fullscreen, opacity, city } = this.state;
-    const baseUrl = '/app/assets/images/';
     const heroHeight = {
       'height': `${fullscreen ? window.innerHeight + 'px' : '' }`
     };
@@ -88,12 +87,7 @@ class Hero extends React.Component {
         </div>
         <div className="hero-foot">
           <div className="container">
-            <OwlCarousel slideSpeed={300} pagination={true}  itemsCustom={[[0, 1],[768, 3], [992, 4]]} >
-              <div className="text-center"><img src={baseUrl + '/award.png'} /></div>
-              <div className="text-center"><img src={baseUrl + '/award-2.png'} /></div>
-              <div className="text-center"><img src={baseUrl + '/award-3.png'} /></div>
-              <div className="text-center"><img src={baseUrl + '/award-4.png'} /></div>
-            </OwlCarousel>
+            
           </div>
         </div>
 
